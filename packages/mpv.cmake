@@ -17,7 +17,7 @@ ExternalProject_Add(mpv
         spirv-cross
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
-    GIT_TAG v0.35.1
+    GIT_TAG acababec208ec4f26c1462228a9ec1d4aac2c815
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} meson <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}
