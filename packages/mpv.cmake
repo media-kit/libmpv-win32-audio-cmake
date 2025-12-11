@@ -9,7 +9,6 @@ ExternalProject_Add(mpv
         libpng
         uchardet
         openal-soft
-        mujs
         libplacebo
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
