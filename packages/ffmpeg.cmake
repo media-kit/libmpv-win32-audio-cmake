@@ -2,8 +2,11 @@ ExternalProject_Add(ffmpeg
     DEPENDS
         amf-headers
         bzip2
-        lame
+        lcms2
+        openssl
+        libssh
         libass
+        libmodplug
         libpng
         libsoxr
         libwebp
@@ -13,9 +16,9 @@ ExternalProject_Add(ffmpeg
         opus
         speex
         vorbis
+        libjxl
         libxml2
         libvpl
-        mbedtls
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_TAG ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
