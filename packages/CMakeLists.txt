@@ -12,7 +12,6 @@ list(APPEND ep
     bzip2
     libjpeg
     lcms2
-    lame
     ogg
     vorbis
     opus-dnn
@@ -25,9 +24,6 @@ list(APPEND ep
     libpng
     x264
     x265
-    libdvdcss
-    libdvdread
-    libdvdnav
     libiconv
     fribidi
     expat
@@ -37,7 +33,6 @@ list(APPEND ep
     brotli
     freetype2
     libudfread
-    libbluray
     harfbuzz
     libsoxr
     graphengine
