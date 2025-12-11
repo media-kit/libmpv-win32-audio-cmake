@@ -1,38 +1,25 @@
 ExternalProject_Add(ffmpeg
-        DEPENDS
+    DEPENDS
         amf-headers
-        avisynth-headers
-        ${nvcodec_headers}
         bzip2
-        lcms2
-        openssl
-        libssh
-        libsrt
+        lame
         libass
-        libmodplug
         libpng
         libsoxr
-        libbs2b
         libwebp
         libzimg
         libmysofa
-        fontconfig
         harfbuzz
         opus
         speex
         vorbis
-        libvpl
-        libjxl
         libxml2
-        shaderc
-        libplacebo
-        dav1d
-        openal-soft
+        libvpl
+        mbedtls
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
-    GIT_CLONE_FLAGS "--sparse --filter=tree:0"
-    GIT_TAG n6.0
-    GIT_CLONE_POST_COMMAND "sparse-checkout set --no-cone /* !tests/ref/fate"
+    GIT_TAG ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
+    PATCH_COMMAND ${EXEC} git apply ${CMAKE_CURRENT_SOURCE_DIR}/ffmpeg-*.patch
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} CONF=1 <SOURCE_DIR>/configure
         --cross-prefix=${TARGET_ARCH}-
@@ -41,6 +28,8 @@ ExternalProject_Add(ffmpeg
         --target-os=mingw32
         --pkg-config-flags=--static
         --enable-cross-compile
+        --enable-runtime-cpudetect
+        ${ffmpeg_hardcoded_tables}
 
         --disable-gpl
         --disable-nonfree
@@ -204,24 +193,22 @@ ExternalProject_Add(ffmpeg
         --enable-protocol=tcp
         --enable-protocol=tls
         --enable-protocol=srt
-        --enable-protocol=udp
 
         --enable-encoder=mjpeg
-	--enable-encoder=ljpeg
-	--enable-encoder=jpegls
-	--enable-encoder=jpeg2000
-	--enable-encoder=png
-	--enable-encoder=jpegls
+        --enable-encoder=ljpeg
+        --enable-encoder=jpegls
+        --enable-encoder=jpeg2000
+        --enable-encoder=png
+        --enable-encoder=jpegls
 
         --enable-network
-        
-        ${ffmpeg_cuda}
+
         ${ffmpeg_lto}
         --extra-cflags='-Wno-error=int-conversion'
         "--extra-libs='${ffmpeg_extra_libs}'" # -lstdc++ / -lc++ needs by libjxl and shaderc
-        BUILD_COMMAND ${MAKE}
-        INSTALL_COMMAND ${MAKE} install
-        LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
+    BUILD_COMMAND ${MAKE}
+    INSTALL_COMMAND ${MAKE} install
+    LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
 )
 
 force_rebuild_git(ffmpeg)
