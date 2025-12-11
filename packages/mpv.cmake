@@ -17,6 +17,8 @@ ExternalProject_Add(mpv
         spirv-cross
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
+    GIT_TAG v0.39.0
+    PATCH_COMMAND ${EXEC} git apply ${CMAKE_CURRENT_SOURCE_DIR}/mpv-*.patch
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}
@@ -37,7 +39,8 @@ ExternalProject_Add(mpv
         -Duchardet=enabled
         -Dlcms2=enabled
         -Dopenal=disabled
-        -Dspirv-cross=enabled
+        -Dgl=disabled
+        -Dspirv-cross=disabled
         -Dvulkan=disabled
         -Dvapoursynth=disabled
         ${mpv_gl}

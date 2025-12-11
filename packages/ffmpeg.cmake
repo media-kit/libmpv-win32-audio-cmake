@@ -60,30 +60,30 @@ ExternalProject_Add(ffmpeg
         --disable-protocols
         --disable-filters
         --disable-doc
+        --disable-postproc
         --disable-programs
         --disable-gray
         --disable-swscale-alpha
 
-        --enable-bsfs
+        --disable-bsfs
 
-        --enable-amf
-        --enable-dxva2
-        --enable-d3d11va
-
+        --disable-amf
+        --disable-cuda
+        --disable-nvdec
+        --disable-nvenc
+        --disable-cuvid
+        --disable-dxva2
+        --disable-libmfx
+        --disable-d3d11va
         --disable-vaapi
         --disable-vdpau
         --disable-bzlib
         --disable-libmfx
         --disable-libuavs3d
+        --disable-ffnvcodec
         --disable-linux-perf
         --disable-videotoolbox
         --disable-audiotoolbox
-
-        --disable-bsf=mjpeg2jpeg
-        --disable-bsf=mjpega_dump_header
-        --disable-bsf=mov2textsub
-        --disable-bsf=text2movsub
-        --disable-bsf=eac3_core
 
         --enable-small
         --enable-hwaccels
@@ -93,21 +93,7 @@ ExternalProject_Add(ffmpeg
         --enable-openssl
         --enable-libssh
 
-        --enable-libdav1d
-
         --enable-libjxl
-
-        --enable-libvpl
-        --enable-libbs2b
-        --enable-libwebp
-        --enable-libzimg
-        --enable-libxml2
-        --enable-libsoxr
-        --enable-libspeex
-        --enable-libmysofa
-        --enable-libshaderc
-        --enable-libfribidi
-        --enable-libfreetype
 
         --enable-avutil
         --enable-avcodec
@@ -116,27 +102,6 @@ ExternalProject_Add(ffmpeg
         --enable-avdevice
         --enable-swscale
         --enable-swresample
-
-        --enable-decoder=flv
-        --enable-decoder=h263
-        --enable-decoder=h263i
-        --enable-decoder=h263p
-        --enable-decoder=h264*
-        --enable-decoder=mpeg1video
-        --enable-decoder=mpeg2*
-        --enable-decoder=mpeg4*
-        --enable-decoder=vp6
-        --enable-decoder=vp6a
-        --enable-decoder=vp6f
-        --enable-decoder=vp8*
-        --enable-decoder=vp9*
-        --enable-decoder=hevc*
-        --enable-decoder=av1*
-        --enable-decoder=libdav1d
-        --enable-decoder=theora
-        --enable-decoder=msmpeg*
-        --enable-decoder=mjpeg*
-        --enable-decoder=wmv*
 
         --enable-decoder=aac*
         --enable-decoder=ac3
@@ -163,20 +128,8 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=pcm*
         --enable-decoder=dsd*
         --enable-decoder=dca
-
-        --enable-decoder=ssa
-        --enable-decoder=ass
-        --enable-decoder=dvbsub
-        --enable-decoder=dvdsub
-        --enable-decoder=srt
-        --enable-decoder=stl
-        --enable-decoder=subrip
-        --enable-decoder=subviewer
-        --enable-decoder=subviewer1
-        --enable-decoder=text
-        --enable-decoder=vplayer
-        --enable-decoder=webvtt
-        --enable-decoder=movtext
+        --enable-decoder=dca
+        --enable-decoder=truehd
 
         --enable-decoder=mjpeg
         --enable-decoder=ljpeg
@@ -188,28 +141,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=tiff
         --enable-decoder=webp
         --enable-decoder=jpegls
-
-        --enable-demuxer=concat
-        --enable-demuxer=data
-        --enable-demuxer=flv
-        --enable-demuxer=hls
-        --enable-demuxer=latm
-        --enable-demuxer=live_flv
-        --enable-demuxer=loas
-        --enable-demuxer=m4v
-        --enable-demuxer=mov
-        --enable-demuxer=mpegps
-        --enable-demuxer=mpegts
-        --enable-demuxer=mpegvideo
-        --enable-demuxer=hevc
-        --enable-demuxer=rtsp
-        --enable-demuxer=mpeg4
-        --enable-demuxer=mjpeg*
-        --enable-demuxer=avi
-        --enable-demuxer=av1
-        --enable-demuxer=matroska
-        --enable-demuxer=dash
-        --enable-demuxer=webm_dash_manifest
 
         --enable-demuxer=aac
         --enable-demuxer=ac3
@@ -235,24 +166,10 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=wv
         --enable-demuxer=xwma
         --enable-demuxer=dsf
+        --enable-demuxer=dts
         --enable-demuxer=truehd
         --enable-demuxer=dts
         --enable-demuxer=dtshd
-
-        --enable-demuxer=ass
-        --enable-demuxer=srt
-        --enable-demuxer=stl
-        --enable-demuxer=webvtt
-        --enable-demuxer=subviewer
-        --enable-demuxer=subviewer1
-        --enable-demuxer=vplayer
-
-        --enable-parser=h263
-        --enable-parser=h264
-        --enable-parser=hevc
-        --enable-parser=mpeg4
-        --enable-parser=mpeg4video
-        --enable-parser=mpegvideo
 
         --enable-parser=aac*
         --enable-parser=ac3

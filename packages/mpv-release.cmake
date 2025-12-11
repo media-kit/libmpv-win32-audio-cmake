@@ -51,7 +51,8 @@ ExternalProject_Add(mpv-release
         -Duchardet=enabled
         -Dlcms2=enabled
         -Dopenal=disabled
-        -Dspirv-cross=enabled
+        -Dgl=disabled
+        -Dspirv-cross=disabled
         -Dvulkan=disabled
         -Dvapoursynth=disabled
         ${mpv_gl}
