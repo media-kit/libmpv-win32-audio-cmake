@@ -31,6 +31,8 @@ ExternalProject_Add(mpv
         -Dlibmpv=true
         -Dpdf-build=enabled
         -Dlua=disabled
+        -Dlibplacebo=disabled
+        -Dvulkan=disabled
         -Djavascript=disabled
         -Dlibarchive=enabled
         -Dlcms2=enabled
