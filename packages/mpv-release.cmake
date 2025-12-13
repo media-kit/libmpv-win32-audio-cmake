@@ -28,7 +28,6 @@ ExternalProject_Add(mpv-release
         spirv-cross
         vulkan
         shaderc
-        libplacebo
         spirv-cross
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
