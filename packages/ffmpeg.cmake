@@ -119,6 +119,7 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=dsd*
         --enable-decoder=dca
         --enable-decoder=dca
+        --enable-decoder=mlp
         --enable-decoder=truehd
 
         --enable-decoder=mjpeg
