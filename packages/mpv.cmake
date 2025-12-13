@@ -12,7 +12,7 @@ ExternalProject_Add(mpv
         libplacebo
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
-    GIT_TAG v0.39.0
+    GIT_TAG v0.35.1
     PATCH_COMMAND ${EXEC} git apply ${CMAKE_CURRENT_SOURCE_DIR}/mpv-*.patch
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
