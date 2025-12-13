@@ -1,8 +1,8 @@
 diff --git a/audio/out/ao_wasapi_utils.c b/audio/out/ao_wasapi_utils.c
-index a696040dba..6ad85f71cf 100644
+index a696040dba..9bcdba3dc3 100644
 --- a/audio/out/ao_wasapi_utils.c
 +++ b/audio/out/ao_wasapi_utils.c
-@@ -22,6 +22,27 @@
+@@ -22,6 +22,15 @@
  #include <windows.h>
  #include <errors.h>
  #include <ksguid.h>
@@ -13,18 +13,6 @@ index a696040dba..6ad85f71cf 100644
 +
 +#ifndef WAVE_FORMAT_DOLBY_AC3_SPDIF
 +#define WAVE_FORMAT_DOLBY_AC3_SPDIF 0x0092
-+#endif
-+
-+#ifndef KSDATAFORMAT_SUBTYPE_IEC61937_DTS
-+DEFINE_GUID(KSDATAFORMAT_SUBTYPE_IEC61937_DTS,
-+            WAVE_FORMAT_DTS, 0x0000, 0x0010, 0x80, 0x00,
-+            0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-+#endif
-+
-+#ifndef KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL
-+DEFINE_GUID(KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL,
-+            WAVE_FORMAT_DOLBY_AC3_SPDIF, 0x0000, 0x0010, 0x80, 0x00,
-+            0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
 +#endif
 +
  #include <ksmedia.h>
