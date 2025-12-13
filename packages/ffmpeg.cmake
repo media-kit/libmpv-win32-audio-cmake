@@ -23,7 +23,7 @@ ExternalProject_Add(ffmpeg
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_TAG ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
     UPDATE_COMMAND ""
-    CONFIGURE_COMMAND ${EXEC} CONF=1 <SOURCE_DIR>/configure
+    CONFIGURE_COMMAND ${EXEC} LTO=0 CONF=1 <SOURCE_DIR>/configure
         --cross-prefix=${TARGET_ARCH}-
         --prefix=${MINGW_INSTALL_PREFIX}
         --arch=${TARGET_CPU}
@@ -208,7 +208,7 @@ ExternalProject_Add(ffmpeg
 
         --extra-cflags='-Wno-error=int-conversion'
         "--extra-libs='${ffmpeg_extra_libs}'" # -lstdc++ / -lc++ needs by libjxl and shaderc
-    BUILD_COMMAND ${MAKE}
+    BUILD_COMMAND ${EXEC} LTO=0 make -j${MAKEJOBS}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
 )
