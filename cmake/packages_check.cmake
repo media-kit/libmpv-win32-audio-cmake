@@ -20,7 +20,7 @@ elseif(COMPILER_TOOLCHAIN STREQUAL "clang")
                                             COMMAND ${CMAKE_COMMAND} -E copy <SOURCE_DIR>/VapourSynth.lib ${MINGW_INSTALL_PREFIX}/lib/VapourSynth.lib)
     set(ffmpeg_extra_libs "-lc++")
     set(mpv_lto_mode "")
-    set(mpv_copy_debug COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/mpv.pdb ${CMAKE_CURRENT_BINARY_DIR}/mpv-debug/mpv.pdb)
+    # set(mpv_copy_debug COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/mpv.pdb ${CMAKE_CURRENT_BINARY_DIR}/mpv-debug/mpv.pdb)
     if(CLANG_PACKAGES_LTO)
         set(cargo_lto_rustflags "CARGO_PROFILE_RELEASE_LTO=thin
                                  RUSTFLAGS='-C linker-plugin-lto -C embed-bitcode -C lto=thin'")
