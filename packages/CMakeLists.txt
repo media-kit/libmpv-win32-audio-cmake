@@ -74,6 +74,7 @@ list(APPEND ep
     glad
     fast_float
     libdovi
+    libplacebo
     libva
     libzvbi
     libsixel

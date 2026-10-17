@@ -140,7 +140,7 @@ PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_
     else()
         execute_process(
             WORKING_DIRECTORY ${stamp_dir}
-            COMMAND ${EXEC} rm ${_name}-gitclone-lastrun.txt
+            COMMAND ${EXEC} rm -f ${_name}-gitclone-lastrun.txt ${_name}-download
             ERROR_QUIET
         )
     endif()

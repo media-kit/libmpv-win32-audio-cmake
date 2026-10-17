@@ -3,6 +3,10 @@ ExternalProject_Add(llvm-libcxx
         llvm-compiler-rt-builtin
     DOWNLOAD_COMMAND ""
     UPDATE_COMMAND ""
+    PATCH_COMMAND bash -c
+        "git apply --reverse --check -- \"$1\" 2>/dev/null || git apply -- \"$1\""
+        --
+        "${CMAKE_CURRENT_SOURCE_DIR}/llvm/llvm-libunwind-0001-fix-exception-disposition-enum.patch"
     SOURCE_DIR ${LLVM_SRC}
     LIST_SEPARATOR ,
     CONFIGURE_COMMAND ${EXEC} CONF=1 cmake -H<SOURCE_DIR>/runtimes -B<BINARY_DIR>
